@@ -10,19 +10,21 @@ class TextFieldWidget extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      padding: const EdgeInsets.symmetric(vertical: 10, horizontal: 20),
+      height: 50,
+      padding: const EdgeInsets.symmetric(horizontal: 20),
       decoration: BoxDecoration(
-        color: MyColors.lightGrey,
+        color: MyColors.bgColor,
         borderRadius: BorderRadius.circular(10),
       ),
       child: Padding(
         padding: const EdgeInsets.all(8.0),
         child: TextFormField(
           decoration: InputDecoration(
+            border: InputBorder.none,
             suffixIcon: icon,
             hintText: hintText,
-            hintStyle: const TextStyle(fontSize: 14, color: Colors.black),
-            labelStyle: const TextStyle(fontSize: 14, color: Colors.black),
+            hintStyle: const TextStyle(fontSize: 14, color: Color(0xff515151)),
+            labelStyle: const TextStyle(fontSize: 14, color: Color(0xff9a9a9a)),
           ),
           controller: tfController,
         ),

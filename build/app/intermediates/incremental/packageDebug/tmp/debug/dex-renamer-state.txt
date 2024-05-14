@@ -1,0 +1,4 @@
+#Tue May 14 21:37:20 ULAT 2024
+base.0=D\:\\develop\\pulse-play-mobile-app\\build\\app\\intermediates\\dex\\debug\\mergeDexDebug\\classes.dex
+path.0=classes.dex
+renamed.0=classes.dex

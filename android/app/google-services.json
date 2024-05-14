@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "1004625531592",
+    "project_id": "pulseplay-37e8b",
+    "storage_bucket": "pulseplay-37e8b.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:1004625531592:android:4ca638c4ccddb11628cbfd",
+        "android_client_info": {
+          "package_name": "com.example.pulse_play_mobile_app"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAvj-2pjVLuRDrhiXciw4QGkhxJZkcgadk"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

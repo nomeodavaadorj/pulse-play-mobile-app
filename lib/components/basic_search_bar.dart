@@ -6,8 +6,9 @@ class BasicSearchBar extends StatelessWidget {
   final TextEditingController controller;
   final double height;
   final double width;
+  final Function(String) onSubmitted;
 
-  const BasicSearchBar({super.key, required this.controller, required this.height, required this.width});
+  const BasicSearchBar({super.key, required this.controller, required this.height, required this.width, required this.onSubmitted});
 
   @override
   Widget build(BuildContext context) {
@@ -31,6 +32,7 @@ class BasicSearchBar extends StatelessWidget {
                 color: MyColors.hintTextColor,
                 fontFamily: MyFonts.proDisplay,
               )),
+          onSubmitted: onSubmitted,
           style: const TextStyle(color: Colors.black),
           controller: controller),
     );

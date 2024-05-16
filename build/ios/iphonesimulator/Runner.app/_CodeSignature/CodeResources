@@ -46,7 +46,7 @@
 		</data>
 		<key>Frameworks/App.framework/App</key>
 		<data>
-		faGX6qqMb4fybPAwLf+B3MwiwGM=
+		iqHzjqUH3wPsFYGu48HUYwBChBA=
 		</data>
 		<key>Frameworks/App.framework/Info.plist</key>
 		<data>
@@ -54,7 +54,7 @@
 		</data>
 		<key>Frameworks/App.framework/_CodeSignature/CodeResources</key>
 		<data>
-		ozDF8J9vH7AEy8LwaN/wOc5FZ/A=
+		DOH1sgIGGFPoMwaGbASU9E2g0uo=
 		</data>
 		<key>Frameworks/App.framework/flutter_assets/AssetManifest.bin</key>
 		<data>
@@ -70,7 +70,7 @@
 		</data>
 		<key>Frameworks/App.framework/flutter_assets/NOTICES.Z</key>
 		<data>
-		szDssqpm4bxAgwvgBOrG1NXYSdk=
+		A8ubGd3z9+xFwY36mLIHKC9flO4=
 		</data>
 		<key>Frameworks/App.framework/flutter_assets/assets/fonts/SFPRODISPLAYBOLD.OTF</key>
 		<data>
@@ -98,7 +98,7 @@
 		</data>
 		<key>Frameworks/App.framework/flutter_assets/kernel_blob.bin</key>
 		<data>
-		W9zxL6GsmWv+8lZb46y+OD8RKfY=
+		0ohtZ/l77UElJqrGcpkpYihvrAI=
 		</data>
 		<key>Frameworks/App.framework/flutter_assets/packages/cupertino_icons/assets/CupertinoIcons.ttf</key>
 		<data>
@@ -216,6 +216,30 @@
 		<data>
 		Ubat0LvE4LUgCwHeyl0Anx2vnzk=
 		</data>
+		<key>Frameworks/assets_audio_player.framework/Info.plist</key>
+		<data>
+		W9d3RARjKTV+Nb6NZ+PZk0pzXWo=
+		</data>
+		<key>Frameworks/assets_audio_player.framework/_CodeSignature/CodeResources</key>
+		<data>
+		6hVHnz0syAXTFEmxlex9dt6HUiw=
+		</data>
+		<key>Frameworks/assets_audio_player.framework/assets_audio_player</key>
+		<data>
+		uIOzA1lVTxi7KlA1tZc/t3FgbTA=
+		</data>
+		<key>Frameworks/assets_audio_player_web.framework/Info.plist</key>
+		<data>
+		0xK/Rl+XopkDlpAMyzXc1l2++As=
+		</data>
+		<key>Frameworks/assets_audio_player_web.framework/_CodeSignature/CodeResources</key>
+		<data>
+		9A/c4YZNiZX8eSNYv7Xm7EcV+oY=
+		</data>
+		<key>Frameworks/assets_audio_player_web.framework/assets_audio_player_web</key>
+		<data>
+		0VtXmaTrjikn/8WQm4Lnu5Dqngk=
+		</data>
 		<key>Frameworks/path_provider_foundation.framework/Info.plist</key>
 		<data>
 		2zdICUhWyYT+A/hIdwcili37TWs=
@@ -325,7 +349,7 @@
 		<dict>
 			<key>hash2</key>
 			<data>
-			QAxfGpel77DqYH4OU/6iqLCQ9Mg0jrDJ8Tb2puOa7JA=
+			k2eVmnieEjo9T0DstKivKb2PJTV1uQ9SsvjHeYjjdwU=
 			</data>
 		</dict>
 		<key>Frameworks/App.framework/Info.plist</key>
@@ -339,7 +363,7 @@
 		<dict>
 			<key>hash2</key>
 			<data>
-			OPCTF9lU/Jq5ohJtUsqBwqwHt3ww4ZWxtzyO8eUKXDc=
+			vj2yXOG60r8u6v+tR1iSB+i9obnyEgV6qiNRovMhfg8=
 			</data>
 		</dict>
 		<key>Frameworks/App.framework/flutter_assets/AssetManifest.bin</key>
@@ -367,7 +391,7 @@
 		<dict>
 			<key>hash2</key>
 			<data>
-			DJA4hxCPxIEL9PpKj0ashulfxcVembjyopjnxeLnr7k=
+			loQ+XjmKsVUAh6+tMgUkk0DhUFZPjD4v+lV6X8yfNq4=
 			</data>
 		</dict>
 		<key>Frameworks/App.framework/flutter_assets/assets/fonts/SFPRODISPLAYBOLD.OTF</key>
@@ -416,7 +440,7 @@
 		<dict>
 			<key>hash2</key>
 			<data>
-			pLrIuRSrHUpgA0YPkWTy+WE5cQfXX1psg4eRFQzXvoQ=
+			b7kBQzb/jhuGm8nJVdYBhzsrtkigXzwni8g87Km9Ttk=
 			</data>
 		</dict>
 		<key>Frameworks/App.framework/flutter_assets/packages/cupertino_icons/assets/CupertinoIcons.ttf</key>
@@ -620,6 +644,48 @@
 			<key>hash2</key>
 			<data>
 			ZepykIMSjfzhwAcmupMrkaqvXkhza1ZE3TdHjl8odaw=
+			</data>
+		</dict>
+		<key>Frameworks/assets_audio_player.framework/Info.plist</key>
+		<dict>
+			<key>hash2</key>
+			<data>
+			G5IrGYIWjGsOSQArXdhHSduoLD/meGPJ8EykCr4/vuE=
+			</data>
+		</dict>
+		<key>Frameworks/assets_audio_player.framework/_CodeSignature/CodeResources</key>
+		<dict>
+			<key>hash2</key>
+			<data>
+			IUQ6TuS+st8JTIBMS2+2eXXhMm6+cXVd3bFaoLB6uGA=
+			</data>
+		</dict>
+		<key>Frameworks/assets_audio_player.framework/assets_audio_player</key>
+		<dict>
+			<key>hash2</key>
+			<data>
+			JUGVQ6UrHlTwHNMd1VuWYPMbusZLwEzdOFd70rjJCMY=
+			</data>
+		</dict>
+		<key>Frameworks/assets_audio_player_web.framework/Info.plist</key>
+		<dict>
+			<key>hash2</key>
+			<data>
+			VazWvFBTscWSTfK/oPd2AvBJ+2b6C2DAw2c/1SS2Gts=
+			</data>
+		</dict>
+		<key>Frameworks/assets_audio_player_web.framework/_CodeSignature/CodeResources</key>
+		<dict>
+			<key>hash2</key>
+			<data>
+			qiRBxYAjyyJ7g8/tO9yVkt2EEU9jIj7TiwT3ZdJzEYo=
+			</data>
+		</dict>
+		<key>Frameworks/assets_audio_player_web.framework/assets_audio_player_web</key>
+		<dict>
+			<key>hash2</key>
+			<data>
+			c9shvP0TR5Gcl8Id9jq73nN7AM1BKH6/NmD+am/xq9Q=
 			</data>
 		</dict>
 		<key>Frameworks/path_provider_foundation.framework/Info.plist</key>

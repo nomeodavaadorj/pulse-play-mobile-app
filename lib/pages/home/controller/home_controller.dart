@@ -39,14 +39,9 @@ class HomeController extends GetxController {
           'format': 'json',
         },
       );
-
-      var topTracks = response.data['tracks']['track'];
       state.topTracks.value = response.data['tracks']['track'];
 
       log('top tracks: ${response.data['tracks']['track']}');
-      for (var track in topTracks) {
-        log('Track: ${track['name']} by ${track['artist']['name']}');
-      }
     } on DioError catch (e) {
       log('DioError received: ${e.response?.data ?? e.message}');
     }

@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:pulse_play_mobile_app/pages/home/components/playlist_item.dart';
 import 'package:pulse_play_mobile_app/pages/home/components/top_track_item.dart';
+import 'package:pulse_play_mobile_app/pages/home/view/music_player_screen.dart';
 
 import '../../../components/basic_search_bar.dart';
 import '../../../style/my_fonts.dart';
@@ -93,7 +94,9 @@ class HomeScreen extends GetWidget<HomeController> {
                       itemBuilder: (BuildContext context, int index) {
                         dynamic track = controller.state.topTracks[index];
 
-                        return Padding(padding: const EdgeInsets.only(right: 5.0), child: TopTrackItem(track));
+                        return Padding(
+                            padding: const EdgeInsets.only(right: 5.0),
+                            child: InkWell(onTap: () => Get.to(MusicPlayerScreen(track)), child: TopTrackItem(track)));
                       },
                     ),
                   ),

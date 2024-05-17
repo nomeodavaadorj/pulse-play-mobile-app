@@ -1,10 +1,11 @@
 import 'package:flutter/material.dart';
-import 'package:flutter/widgets.dart';
 import 'package:get/get.dart';
 import 'package:pulse_play_mobile_app/components/text_field_widget.dart';
 import 'package:pulse_play_mobile_app/pages/login/controller/login_controller.dart';
 import 'package:pulse_play_mobile_app/style/my_fonts.dart';
 import 'package:pulse_play_mobile_app/utils/my_colors.dart';
+
+import '../../../components/success_dialog_widget.dart';
 
 class LoginScreen extends GetWidget<LoginController> {
   const LoginScreen({super.key});
@@ -12,10 +13,10 @@ class LoginScreen extends GetWidget<LoginController> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Colors.black, 
+      backgroundColor: Colors.black,
       body: Container(
         height: double.maxFinite,
-        padding: EdgeInsets.symmetric(horizontal: 50, vertical: 24),
+        padding: const EdgeInsets.symmetric(horizontal: 50, vertical: 24),
         child: Column(
           mainAxisAlignment: MainAxisAlignment.spaceBetween,
           children: [
@@ -23,8 +24,8 @@ class LoginScreen extends GetWidget<LoginController> {
               children: [
                 SizedBox(height: MediaQuery.of(context).size.height * 0.1),
                 Image.asset('assets/images/pp_logo.png'),
-                SizedBox(
-                  height: 20,
+                const SizedBox(
+                  height: 40,
                 ),
                 const Text(
                   'Тавтай морил',
@@ -45,42 +46,84 @@ class LoginScreen extends GetWidget<LoginController> {
             Column(
               children: [
                 TextFieldWidget(
-                    tfController: controller.emailController,
-                    icon: const Icon(Icons.email_outlined),
-                    hintText: 'Имейл'),
+                  tfController: controller.emailController,
+                  icon: const Icon(Icons.email_outlined),
+                  hintText: 'Имейл',
+                  isErrorOccured: false,
+                ),
                 const SizedBox(height: 20),
                 TextFieldWidget(
-                    tfController: controller.passController,
-                    icon: const Icon(Icons.lock),
-                    hintText: 'Нууц үг'),
+                  tfController: controller.passController,
+                  icon: const Icon(Icons.lock),
+                  hintText: 'Нууц үг',
+                  isErrorOccured: false,
+                ),
                 Row(
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: [
                     Row(
                       children: [
-                        Checkbox(value: true, onChanged: (value) {}),
-                        Text("Remember me", style: TextStyle(fontSize: 12),),
+                        Obx(
+                          () => Checkbox(
+                              value: controller.state.isRememberMeChecked.value,
+                              onChanged: (value) {
+                                controller.state.isRememberMeChecked.value = !controller.state.isRememberMeChecked.value;
+                              }),
+                        ),
+                        const Text(
+                          "Намайг сана",
+                          style: TextStyle(fontSize: 12),
+                        ),
                       ],
                     ),
-                    Text("Forget password ?", style: TextStyle(fontSize: 10, color: MyColors.buttonColor),),
+                    const Text(
+                      "Нууц үгээ марсан уу?",
+                      style: TextStyle(fontSize: 10, color: MyColors.buttonColor),
+                    ),
                   ],
                 )
               ],
             ),
             Column(
               children: [
-                Container(
-                  height: 50,
-                  width: double.maxFinite,
-                  decoration: BoxDecoration(
-                      color: MyColors.buttonColor,
-                      borderRadius: BorderRadius.circular(10)),
-                  child: Center(child: const Text('Нэвтрэх >', style: TextStyle(fontSize: 18,),)),
+                ElevatedButton(
+                  style: ElevatedButton.styleFrom(
+                      fixedSize: Size(MediaQuery.of(context).size.width * 0.7, 50),
+                      backgroundColor: MyColors.buttonColor,
+                      shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(10))),
+                  onPressed: () async {
+                    bool success = await controller.signIn();
+                    if (success) {
+                      Get.toNamed('/home');
+                    } else {
+                      Get.dialog(const SuccessDialogWidget(
+                        title: 'Амжилтгүй\n Имейл эсвэл нууц үгээ шалгаад дахин оролдоно уу',
+                      ));
+                    }
+                  },
+                  child: const Text(
+                    'Нэвтрэх >',
+                    style: TextStyle(fontSize: 18, fontFamily: MyFonts.proDisplay, fontWeight: FontWeight.w600, color: Colors.white),
+                  ),
                 ),
-                SizedBox(height: 10,),
+                const SizedBox(
+                  height: 10,
+                ),
                 Row(
                   mainAxisAlignment: MainAxisAlignment.center,
-                  children: [Text("New member? "), Text("Register now", style: TextStyle(color: MyColors.buttonColor),)],
+                  children: [
+                    const Text(
+                      "Шинэ хэрэглэгч үү? ",
+                      style: TextStyle(fontSize: 13, fontFamily: MyFonts.proDisplay, fontWeight: FontWeight.w500, color: Colors.white),
+                    ),
+                    InkWell(
+                      onTap: () => Get.toNamed('/register'),
+                      child: const Text(
+                        "Бүртгүүлэх",
+                        style: TextStyle(color: MyColors.buttonColor, fontSize: 13, fontFamily: MyFonts.proDisplay, fontWeight: FontWeight.w500),
+                      ),
+                    )
+                  ],
                 ),
               ],
             ),

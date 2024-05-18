@@ -9,4 +9,6 @@ class MyColors {
   static const Color playlistItemColor = Color(0xff393442);
   static const Color bgColor = Color(0xff333333);
   static const Color buttonColor = Color(0xff52D7BF);
+  static const Color colorDarkGrey = Color(0xff969696);
+  static const Color logoutColor = Color(0xffE97171);
 }

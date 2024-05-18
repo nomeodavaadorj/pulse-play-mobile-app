@@ -5,7 +5,8 @@ class TextFieldWidget extends StatelessWidget {
   final TextEditingController tfController;
   final Icon icon;
   final String hintText;
-  const TextFieldWidget({super.key, required this.tfController, required this.icon, required this.hintText});
+  final bool isErrorOccured;
+  const TextFieldWidget({super.key, required this.tfController, required this.icon, required this.hintText, required this.isErrorOccured});
 
   @override
   Widget build(BuildContext context) {
@@ -23,8 +24,8 @@ class TextFieldWidget extends StatelessWidget {
             border: InputBorder.none,
             suffixIcon: icon,
             hintText: hintText,
-            hintStyle: const TextStyle(fontSize: 14, color: Color(0xff515151)),
-            labelStyle: const TextStyle(fontSize: 14, color: Color(0xff9a9a9a)),
+            hintStyle: TextStyle(fontSize: 14, color: isErrorOccured ? Colors.red : const Color(0xff515151)),
+            labelStyle: TextStyle(fontSize: 14, color: isErrorOccured ? Colors.red : const Color(0xff9a9a9a)),
           ),
           controller: tfController,
         ),

@@ -102,15 +102,6 @@ class HomeScreen extends GetWidget<HomeController> {
                                 ),
                               ),
                               const Text(
-                                'Сүүлд тоглуулсан',
-                                style: TextStyle(
-                                  fontFamily: MyFonts.proDisplay,
-                                  fontSize: 23,
-                                  fontWeight: FontWeight.w600,
-                                  color: MyColors.colorWhite,
-                                ),
-                              ),
-                              const Text(
                                 'Дуртай дуунууд',
                                 style: TextStyle(
                                   fontFamily: MyFonts.proDisplay,
@@ -119,6 +110,27 @@ class HomeScreen extends GetWidget<HomeController> {
                                   color: MyColors.colorWhite,
                                 ),
                               ),
+                              const SizedBox(
+                                height: 10,
+                              ),
+                              if (controller.state.userLikedSongs.isEmpty) const Text('Одоогоор дуртай дуу байхгүй байна.'),
+                              if (controller.state.userLikedSongs.isNotEmpty)
+                                SizedBox(
+                                  height: 180,
+                                  child: Obx(
+                                    () => ListView.builder(
+                                      scrollDirection: Axis.horizontal,
+                                      itemCount: controller.state.userLikedSongs.length,
+                                      itemBuilder: (BuildContext context, int index) {
+                                        dynamic track = controller.state.userLikedSongs[index];
+
+                                        return Padding(
+                                            padding: const EdgeInsets.only(right: 5.0),
+                                            child: InkWell(onTap: () => Get.to(MusicPlayerScreen(track, false)), child: TopTrackItem(track)));
+                                      },
+                                    ),
+                                  ),
+                                )
                             ],
                           )
                         : const SizedBox(),

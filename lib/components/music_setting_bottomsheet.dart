@@ -1,13 +1,15 @@
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:pulse_play_mobile_app/components/auto_close_dialog.dart';
 import 'package:pulse_play_mobile_app/pages/home/controller/home_controller.dart';
 import 'package:pulse_play_mobile_app/utils/my_colors.dart';
 
 import '../pages/home/components/music_setting_item.dart';
 
 class MusicSettingBottomsheet extends GetWidget<HomeController> {
-  const MusicSettingBottomsheet({super.key});
+  final dynamic music;
+
+  const MusicSettingBottomsheet(this.music, {super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -26,17 +28,27 @@ class MusicSettingBottomsheet extends GetWidget<HomeController> {
             const SizedBox(
               height: 30,
             ),
-            MusicSettingItem(
-              leadingIcon: 'assets/icons/ic_heart_not_filled.png',
-              title: 'Дуртай дуунд нэмэх',
-              onTap: () {},
+            InkWell(
+              onTap: () async => {
+                if (controller.currentUser != null)
+                  {
+                    await controller.addTrackToLiked(controller.currentUser!, music),
+                    Get.dialog(const AutoCloseDialog(title: 'Амжилттай', content: 'Дуртай дуунд нэмэгдлээ')),
+                    Get.back()
+                  },
+              },
+              child: MusicSettingItem(
+                leadingIcon: 'assets/icons/ic_heart_not_filled.png',
+                title: 'Дуртай дуунд нэмэх',
+                onTap: () {},
+              ),
             ),
             const SizedBox(
               height: 20,
             ),
             MusicSettingItem(
               leadingIcon: 'assets/icons/ic_add.png',
-              title: 'Дуртай дуунд нэмэх',
+              title: 'Плейлистэд нэмэх',
               onTap: () {},
             ),
             const SizedBox(
@@ -45,7 +57,9 @@ class MusicSettingBottomsheet extends GetWidget<HomeController> {
             MusicSettingItem(
               leadingIcon: 'assets/icons/ic_minus.png',
               title: 'Дууг нуух',
-              onTap: () {},
+              onTap: () {
+                Get.dialog(const AutoCloseDialog(title: 'Амжилттай', content: 'Дууг нуусан.'));
+              },
             ),
             const SizedBox(
               height: 20,

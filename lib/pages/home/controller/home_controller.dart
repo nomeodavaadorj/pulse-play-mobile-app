@@ -9,6 +9,7 @@ import '../state/home_state.dart';
 
 class HomeController extends GetxController {
   final state = HomeState();
+  User? currentUser = FirebaseAuth.instance.currentUser;
 
   TextEditingController searchBarController = TextEditingController();
 
@@ -23,7 +24,6 @@ class HomeController extends GetxController {
 
   Future<void> fetchUserPlaylistsAndLikes(String userId) async {
     try {
-      // Fetch playlists
       DocumentSnapshot playlistDoc = await FirebaseFirestore.instance.collection('playlists').doc(userId).get();
       if (playlistDoc.exists && playlistDoc.data() != null) {
         Map<String, dynamic> playlistData = playlistDoc.data()! as Map<String, dynamic>;
@@ -36,7 +36,6 @@ class HomeController extends GetxController {
         log('No playlist document found.');
       }
 
-      // Fetch liked songs
       DocumentSnapshot likedDoc = await FirebaseFirestore.instance.collection('liked').doc(userId).get();
       if (likedDoc.exists && likedDoc.data() != null) {
         Map<String, dynamic> likedData = likedDoc.data()! as Map<String, dynamic>;
@@ -124,6 +123,14 @@ class HomeController extends GetxController {
     });
   }
 
+  Future<void> addTrackToLiked(User user, Map<String, dynamic> track) async {
+    DocumentReference playlistRef = FirebaseFirestore.instance.collection('liked').doc(user.uid);
+    await playlistRef.update({
+      'tracks': FieldValue.arrayUnion([track])
+    });
+    fetchUserPlaylistsAndLikes(currentUser!.uid);
+  }
+
   Future<List<dynamic>> fetchUserPlaylist(User user) async {
     DocumentSnapshot playlistDoc = await FirebaseFirestore.instance.collection('playlists').doc(user.uid).get();
     Map<String, dynamic>? data = playlistDoc.data() as Map<String, dynamic>?;
@@ -195,5 +202,8 @@ class HomeController extends GetxController {
     log('user: ${state.user}');
     getTopTracks();
     getTopArtists();
+    if (state.user.isNotEmpty) {
+      fetchUserPlaylistsAndLikes(currentUser!.uid);
+    }
   }
 }

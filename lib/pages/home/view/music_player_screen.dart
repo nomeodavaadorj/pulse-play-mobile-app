@@ -7,10 +7,14 @@ import 'package:pulse_play_mobile_app/style/my_fonts.dart';
 import 'package:pulse_play_mobile_app/utils/my_colors.dart';
 import 'package:url_launcher/url_launcher.dart';
 
+import '../../../components/auto_close_dialog.dart';
+
 class MusicPlayerScreen extends GetWidget<HomeController> {
   final dynamic music;
   final bool isSearchResult;
   final AssetsAudioPlayer audioPlayer = AssetsAudioPlayer.newPlayer();
+
+  final RxBool isLiked = false.obs;
 
   MusicPlayerScreen(this.music, this.isSearchResult, {super.key});
 
@@ -63,7 +67,7 @@ class MusicPlayerScreen extends GetWidget<HomeController> {
                       ),
                     ),
                     builder: (BuildContext context) {
-                      return const MusicSettingBottomsheet();
+                      return MusicSettingBottomsheet(music);
                     });
               },
               child: Image.asset(
@@ -128,12 +132,18 @@ class MusicPlayerScreen extends GetWidget<HomeController> {
                     ),
                   ),
                 ElevatedButton(
-                  onPressed: () {},
-                  child: Image.asset(
-                    'assets/icons/ic_heart_not_filled.png',
-                    alignment: Alignment.center,
-                    height: 20,
-                    width: 20,
+                  onPressed: () async {
+                    isLiked.value = !isLiked.value;
+                    await controller.addTrackToLiked(controller.currentUser!, music); // This still assumes currentUser is non-null
+                    Get.dialog(const AutoCloseDialog(title: 'Амжилттай', content: 'Дуртай дуунд нэмэгдлээ'));
+                  },
+                  child: Obx(
+                    () => Image.asset(
+                      isLiked.value ? 'assets/icons/ic_heart_filled.png' : 'assets/icons/ic_heart_not_filled.png',
+                      alignment: Alignment.center,
+                      height: 20,
+                      width: 20,
+                    ),
                   ),
                 ),
               ],

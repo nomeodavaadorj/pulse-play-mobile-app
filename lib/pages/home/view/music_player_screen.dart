@@ -55,10 +55,12 @@ class MusicPlayerScreen extends GetWidget<HomeController> {
               onTap: () {
                 showModalBottomSheet(
                     context: context,
-                    isScrollControlled: true,
-                    backgroundColor: Colors.transparent,
+                    backgroundColor: MyColors.colorBlack.withOpacity(0.9),
                     shape: const RoundedRectangleBorder(
-                      borderRadius: BorderRadius.vertical(top: Radius.circular(20)),
+                      side: BorderSide(color: Colors.white, width: 0.5),
+                      borderRadius: BorderRadius.vertical(
+                        top: Radius.circular(40),
+                      ),
                     ),
                     builder: (BuildContext context) {
                       return const MusicSettingBottomsheet();

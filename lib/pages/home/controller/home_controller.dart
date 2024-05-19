@@ -162,6 +162,32 @@ class HomeController extends GetxController {
     }
   }
 
+  Future<void> getArtistTopTracks(String artistName) async {
+    var dioClient = Dio();
+    try {
+      dio.Response response = await dioClient.get(
+        'http://ws.audioscrobbler.com/2.0/',
+        queryParameters: {
+          'method': 'artist.getTopTracks',
+          'artist': artistName,
+          'api_key': state.apiKeyLastFm,
+          'format': 'json',
+          'limit': 10,
+        },
+      );
+
+      if (response.data['toptracks'] != null && response.data['toptracks']['track'] != null) {
+        state.artistTracks.value = response.data['toptracks']['track'];
+        log('Top tracks for $artistName: ${state.artistTracks}');
+      } else {
+        log('No top tracks found for $artistName');
+      }
+    } on DioError catch (e) {
+      log('DioError received while fetching top tracks for $artistName: ${e.response?.data ?? e.message}');
+      throw Exception('Error fetching top tracks for artist: ${e.message}');
+    }
+  }
+
   @override
   Future<void> onInit() async {
     super.onInit();

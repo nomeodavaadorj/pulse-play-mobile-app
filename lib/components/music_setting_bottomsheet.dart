@@ -12,7 +12,8 @@ class MusicSettingBottomsheet extends GetWidget<HomeController> {
   @override
   Widget build(BuildContext context) {
     return Container(
-      padding: const EdgeInsets.all(20.0),
+      height: MediaQuery.of(context).size.height * 0.4,
+      padding: const EdgeInsets.symmetric(horizontal: 35.0, vertical: 10.0),
       child: Center(
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.center,

@@ -7,6 +7,7 @@ class HomeState {
   RxList<dynamic> topTracks = RxList();
   RxList<dynamic> userPlaylists = RxList();
   RxList<dynamic> userLikedSongs = RxList();
+  RxList<dynamic> artistTracks = RxList();
   RxMap<String, dynamic> user = RxMap();
   RxList<dynamic> searchResults = RxList();
   RxList<dynamic> topArtists = RxList();
